@@ -1,3 +1,5 @@
+var userClickedPattern = [];
+
 var gamePattern = [];
 
 buttonColors = ["red", "blue", "green", "yellow"];
@@ -42,25 +44,13 @@ switch (selectedId) {
         wrong.play();
     break;
 } 
-/*
-if (selectedId == "#green") {
-    var audio = new Audio('sounds/green.mp3');
-} else if (selectedId == "#blue") {
-    var audio = new Audio('sounds/blue.mp3');
-} else if (selectedId == "#yellow") {
-    var audio = new Audio('sounds/yellow.mp3');
-} else if (selectedId == "#red") {
-    var audio = new Audio('sounds/red.mp3');
-} else {
-    var audio = new Audio('sounds/wrong.mp3');
-}
-audio.play(); 
-*/
 
-$(".btn").on("click", function(e){
+$(".btn").on("click", function(){
     
-    var userChosenColor = e.target;
+    var userChosenColor = this.id;
 
-    console.log(userChosenColor);
+    userClickedPattern.push(userChosenColor);
+
+    console.log(userClickedPattern);
 
 });
