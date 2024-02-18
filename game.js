@@ -4,7 +4,7 @@ var userClickedPattern = [];
 
 var gamePattern = [];
 
-
+var level = 0;
 
 function nextSequence() {
     var randomNumber = Math.floor(Math.random() * 4);
@@ -20,25 +20,25 @@ function nextSequence() {
 
     playSound(randomChosenColor);
 
-    // $("#level-title").text("Level " + level);
+    $("#level-title").text("Level " + level);
 
-    // for (var i = 0; i < 10; i++) {
-    //     // var level = i;
-    //     $("#level-title").text("Level " + i);
-    // }
+    
+    
 
 }
 
 
 
 var firstKeyDown = true;
-
+var started = true;
+   
 $(document).keydown(function (e) {
-    if (firstKeyDown) {
-        nextSequence();
-        console.log(e);
-        firstKeyDown = false;
-    }
+        if (firstKeyDown == started) {
+            nextSequence();
+            console.log(e);
+            firstKeyDown = false;
+        }
+    
     
 });
 
@@ -67,6 +67,14 @@ $(".btn").on("click", function(){
 
     animatePress(userChosenColor);
 
-    nextSequence();
+    if (started) {
+        for (var i = 1; i > level; i++) {
+            // var level = i;
+            $("#level-title").text("Level " + i);
+            
+        }
+        nextSequence();
+    }
+    
 
 });
