@@ -62,7 +62,7 @@ $(".btn").on("click", function(){
 
     userClickedPattern.push(userChosenColor);
 
-    console.log(userClickedPattern);
+    // console.log(userClickedPattern);
 
     playSound(userChosenColor);
 
@@ -72,5 +72,9 @@ $(".btn").on("click", function(){
     
     level++;
     
-
+    checkAnswer()
 });
+
+function checkAnswer(currentLevel) {
+    
+}
